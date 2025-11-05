@@ -1,0 +1,33 @@
+<div class="container mt-3">
+  <h3>{{title}}</h3>
+
+  <!--Interpolation-->
+  <p>Count (interpolation): {{count}}</p>
+
+  <!--Property binding-->
+  <button class="btn btn-primary me-2" [disabled]="isDisabled" (click)="increment()">Increment</button>
+  <button class="btn btn-secondary me-2" (click)="reset()">Reset</button>
+  <button class="btn btn-outline-danger" (click)="isDisabled = !isDisabled">Toggle Disable (isDisabled: {{isDisabled}})</button>
+
+  <hr />
+
+  <!--Event binding + template reference vaiable-->
+  <div class="mb-3">
+    <label for="txt" class="form-lablel">Type something:</label>
+    <input id="txt" #txtRef class="form-control" (input)="onInput($event)" />
+    <small class="text-muted">Template ref value: {{txtRef.value}}</small>
+  </div>
+
+  <p>Two-way-like binding(manual): {{inputValue}}</p>
+
+ <hr />
+
+  <!-- REAL Two Way Binding -->
+  <div class="mb-3">
+    <label for="tw" class="form-label">Real 2 way binding using ngModel</label>
+    <input id="tw" type="text" class="form-control" [(ngModel)]="twoWayValue" (input)="consoleTwoWayValue($event)"/>
+  </div>
+  <p>Two way value → {{ twoWayValue }}</p>
+  <!--Small signals demo display-->
+  <p>Clicks (signal): {{clicks()}}</p>
+</div>
