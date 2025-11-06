@@ -1,0 +1,11 @@
+<div>
+  <div class="container mt-3">
+    <h3 class="badge text-muted">Component Communication</h3>
+      <child-component [messageFromParent]="messageFromParent" (messageFromChild)="onChildResponse($event)"></child-component>
+    <div>
+      <div>
+        <h2>Child responded: {{messageFromChild}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
