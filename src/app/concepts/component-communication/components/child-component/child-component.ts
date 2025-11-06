@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { CounterService } from '../../counter-service';
 
 @Component({
   selector: 'child-component',
@@ -9,6 +10,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ChildComponent {
   @Input() messageFromParent!: string;
   @Output() messageFromChild= new EventEmitter<string>();
+
+  public counter = inject(CounterService)
 
   sendResponse() {
     this.messageFromChild.emit("Hi Parent Child Received your message");
