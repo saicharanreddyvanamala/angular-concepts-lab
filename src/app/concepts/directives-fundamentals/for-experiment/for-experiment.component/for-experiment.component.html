@@ -1,0 +1,12 @@
+<button (click)="addNew()">Add BEGIN</button>
+    <h3>Without trackBy</h3>
+    <div>
+      <app-for-child *ngFor="let item of listNoTrack" [item]="item"></app-for-child>
+    </div>
+
+    <hr>
+
+    <h3>With trackBy</h3>
+    <div>
+      <app-for-child *ngFor="let item of listWithTrack; trackBy: trackById" [item]="item"></app-for-child>
+    </div>

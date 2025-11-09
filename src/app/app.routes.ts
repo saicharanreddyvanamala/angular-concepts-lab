@@ -9,5 +9,8 @@ export const routes: Routes = [
   },
   {
     path: 'component-communication', loadChildren: () => import('./concepts/component-communication/component-communication.module').then(m => m.ComponentCommunication)
+  },
+  {
+    path: 'directives', loadChildren: () => import('./concepts/directives-fundamentals/directives-fundamentals.module').then(m => m.DirectivesFundamentals)
   }
 ];
