@@ -1,0 +1,26 @@
+<h2>Template-Driven Component Architecture Demo</h2>
+
+<ng-template #userTemplate let-user>
+  <p><strong>Name: </strong>{{user.name}}</p>
+  <p><strong>Role: </strong>{{user.role}}</p>
+</ng-template>
+
+<ng-template #productTemplate let-product>
+  <p><strong>Product: </strong>{{product.name}}</p>
+  <p><strong>Price: </strong>{{product.price}}</p>
+</ng-template>
+
+<!-- Parent passes data + template to the reusable shell -->
+ <app-card-shell
+  title="User Info"
+  [data] = "{ name: 'Sai Charan Reddy', role: 'Software Developer'}"
+  [contentTemplate]="userTemplate">
+ </app-card-shell>
+
+ <app-card-shell
+  title="Product Info"
+  [data] = "{name: 'MacBook Pro', price: '300000'}"
+  [contentTemplate]="productTemplate"
+ >
+
+ </app-card-shell>

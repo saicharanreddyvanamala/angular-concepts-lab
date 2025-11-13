@@ -1,0 +1,6 @@
+<h2>View Children Demo</h2>
+<ng-container *ngFor="let color of colors">
+  <p #colorPara>{{color}}</p>
+</ng-container>
+
+<button class="btn btn-warning mt-3" (click)="highlightAll()">Highlight All</button>

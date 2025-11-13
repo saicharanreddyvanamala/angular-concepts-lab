@@ -1,0 +1,15 @@
+<h2>Template Context Demo</h2>
+
+<!-- this is the template blueprint -->
+ <ng-template #userTemplate let-user let-i="index">
+  <div class="my-2 p-2 border-primary">
+    Index = {{i}} | User = {{user.name}}
+  </div>
+ </ng-template>
+
+<!-- instantiate multiple embedded views via ngFor -->
+<ng-container *ngFor="let u of users; let idx = index">
+    <ng-container
+        *ngTemplateOutlet="userTemplate; context: { $implicit: u, index: idx }">
+      </ng-container>
+</ng-container>

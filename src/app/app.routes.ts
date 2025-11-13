@@ -12,5 +12,11 @@ export const routes: Routes = [
   },
   {
     path: 'directives', loadChildren: () => import('./concepts/directives-fundamentals/directives-fundamentals.module').then(m => m.DirectivesFundamentals)
+  },
+  {
+    path: 'template-view', loadChildren: () => import('./concepts/template-view/template-view.module').then(m => m.TemplateViewModule)
+  },
+  {
+    path: 'pipes', loadChildren: () => import('./concepts/pipes/pipes.module').then(m => m.PipesModule)
   }
 ];

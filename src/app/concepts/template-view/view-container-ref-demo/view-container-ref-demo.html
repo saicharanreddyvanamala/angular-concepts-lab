@@ -1,0 +1,13 @@
+ <h2>Multiple Embedded Views Demo</h2>
+
+    <button (click)="addView()">➕ Add View</button>
+    <button (click)="removeLast()">➖ Remove Last</button>
+    <button (click)="clearAll()">🗑️ Clear All</button>
+
+    <p>Total views created: {{ viewContainer.length }}</p>
+
+    <ng-template #messageTemplate let-index="index">
+      <div class="p-2 border mt-2 rounded bg-light">
+        <strong>Dynamic Block #{{ index + 1 }}</strong>
+      </div>
+    </ng-template>

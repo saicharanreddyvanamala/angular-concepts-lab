@@ -1,0 +1,28 @@
+<h2> Built-In Pipes in Angular</h2>
+
+<section class="mt-3 border rounded p-3">
+  <h3>String Pipes</h3>
+  <p>UpperCase: {{name | uppercase}}</p>
+  <p>LoweCase: {{name | lowercase}}</p>
+  <p>TitleCase: {{name | titlecase}}</p>
+</section>
+
+<section class="mt-3 border rounded p-3">
+  <h3>Number Pipes</h3>
+  <p>Currency (INR): {{amount | currency:'INR'}}</p>
+  <p>Decimal: {{amount | number: '1.2-2'}}</p>
+  <p>Percent: {{0.75 | percent}}</p>
+</section>
+
+<section class="mt-3 border rounded p-3">
+  <h3>Date Pipes</h3>
+  <p>Default: {{today | date}}</p>
+  <p>Short: {{today | date:'short' }}</p>
+  <p>Full Date: {{today | date: 'fullDate'}}</p>
+</section>
+
+<section class="mt-3 border rounded p-3">
+  <h3>JSON & Slice Pipes</h3>
+  <p>JSON: {{jsonData | json}}</p>
+  <p>Slice (First 2 letters): {{users | slice:0:2}}</p>
+</section>

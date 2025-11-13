@@ -1,0 +1,30 @@
+<h2>ngTemplateOutlet + Dynamic Tabs Demo</h2>
+
+<ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let tab of tabs; let i = index">
+    <button
+    class="nav-link"
+    [class.active]="selectedTabIndex === i"
+    (click)="selectedTabIndex = i"
+    >
+    {{tab.title}}
+  </button>
+  </li>
+</ul>
+<div class="mt-3 p-3 border rounded" *ngIf="tabs">
+  <ng-container
+    *ngTemplateOutlet="tabs[selectedTabIndex].template; context:{$implicit: tabs[selectedTabIndex].data}"
+  >
+  </ng-container>
+</div>
+
+<!--Templates-->
+<ng-template #homeTemplate let-data>
+  <h4>Home Template</h4>
+  <p>{{data.message}}</p>
+</ng-template>
+
+<ng-template #settingsTemplate let-data>
+  <h4>Settings Template</h4>
+  <p>Mode: {{data.mode}}</p>
+</ng-template>

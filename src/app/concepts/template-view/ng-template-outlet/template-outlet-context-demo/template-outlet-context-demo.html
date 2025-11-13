@@ -1,0 +1,12 @@
+<h2>Context Passing with ngTemplateOutlet</h2>
+
+    <ng-container
+      *ngTemplateOutlet="userTemplate; context: { $implicit: user, index: 5 }">
+    </ng-container>
+
+    <ng-template #userTemplate let-u let-i="index">
+      <div class="border p-2 mt-3">
+        <p>User Name: {{u.name}}</p>
+        <p>Index: {{i}}</p>
+      </div>
+    </ng-template>
