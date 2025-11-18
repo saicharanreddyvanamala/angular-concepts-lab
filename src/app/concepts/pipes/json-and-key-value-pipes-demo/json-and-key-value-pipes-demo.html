@@ -1,0 +1,7 @@
+<h3>JSON Pipe Demo</h3>
+<p class="my-3">{{user | json}}</p>
+
+<h3>KeyValue Pipe Demo</h3>
+<div *ngFor="let item of user | keyvalue">
+  {{item.key}} : {{item.value}}
+</div>

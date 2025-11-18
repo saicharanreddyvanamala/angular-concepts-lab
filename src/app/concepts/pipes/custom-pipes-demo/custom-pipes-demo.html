@@ -1,0 +1,28 @@
+<!--Custom Pipes Demo-->
+<h2>Custom Pipes</h2>
+
+<section class="mt-3 border rounded p-3">
+  <h3>Append Pipe Examples</h3>
+  <p>Default: {{userName | append: ' Reddy'}}</p>
+  <p>Prepend: {{framework | append:'fire ': 'start'}}</p>
+  <p>Dynamic: {{'Hello' | append: ' ' + framework}}</p>
+</section>
+
+<!-- Parameterizing pipe example-->
+ <section class="mt-3 border rounded p-3">
+  <h3>Parameterizing Pipe Example (Truncate)</h3>
+  <p>Default: {{'Angular is awesome and powerful' | truncate}}</p>
+  <p>Custom Limit: {{'Angular is awesome and powerful' | truncate:{limit: 10} }}</p>
+  <p>Custom Limit + suffix: {{'Angular is awesome and powerful' | truncate:{limit: 12, suffix: '***'} }}</p>
+  <p>Custom suffix: {{'Angular is awesome and powerful' | truncate:{suffix: '@@@'} }}</p>
+ </section>
+
+
+ <!-- Chaining pipe example -->
+  <section class="mt-3 border rounded p-3">
+    <h3>Chaining Pipes Exapmple</h3>
+    <p>original: {{'Sai Charan Reddy'}}</p>
+    <p>Uppercase + Slice: {{'Sai Charan Reddy' | uppercase | slice:0:3 }}</p>
+    <p>Truncate + Uppercase: {{'Angular is awesome and powerful' | truncate:{limit: 15, suffix:'$$$'} | uppercase }}</p>
+    <p>Date Formatting Chain: {{today | date:'medium' | lowercase}}</p>
+  </section>

@@ -1,0 +1,19 @@
+<section class="border rounded p-5">
+  <h3>Pure vs Impure Pipe Demo</h3>
+  <!-- Title Example -->
+   <p><strong>Original:</strong> {{title}}</p>
+   <p><strong>PURE PIPE:</strong> {{title | pureUppercase}}</p>
+   <p><strong>IMPURE PIPE:</strong> {{title | impureUppercase}}</p>
+
+   <button (click)="changeTitle()">Change Title</button>
+
+   <hr />
+
+   <!--Array Example -->
+   <h3>Users List</h3>
+   <p><strong>PURE PIPE:</strong> {{users | pureUppercase}}</p>
+   <p><strong>IMPURE PIPE:</strong> {{users | impureUppercase}}</p>
+
+   <button (click)="addUserMutating()">Mutate Array(Push)</button>
+   <button (click)="addUserImmutably()">Change Reference (spread)</button>
+</section>
