@@ -1,0 +1,35 @@
+<section>
+<h3>Basic Template driven Form Example</h3>
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <label class="m-3">Name:</label>
+    <input name="name" ngModel required minlength="3" #name = "ngModel" />
+    <div *ngIf="name.invalid && name.touched">
+      <small *ngIf="name.errors?.['required']">Name Required</small>
+      <small *ngIf="name.errors?.['minlength']">Please type min 3 characters</small>
+    </div>
+
+    <label class="m-3">Email:</label>
+    <input name="email" ngModel required email #email = "ngModel">
+    <div *ngIf="email.invalid && email.touched">
+      <small>Email is Invalid</small>
+    </div>
+
+    <div ngModelGroup="address">
+      <label class="m-3">City:</label>
+      <input name="city" ngModel>
+      <label class="m-3">Pincode:</label>
+      <input name="pincode" ngModel>
+    </div>
+
+    <button type="submit" class="btn btn-primary m-3" [disabled]="form.invalid">Submit</button>
+  </form>
+</section>
+
+
+<section>
+  <h3 class="mb-3">Control Value Accessor Example</h3>
+  <form #f="ngForm">
+    <app-custom-value-accessor name="count" [(ngModel)]="countValue"></app-custom-value-accessor>
+    <p>Value: {{countValue}}</p>
+  </form>
+</section>

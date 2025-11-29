@@ -1,0 +1,7 @@
+<div (blur)="markTouched()">
+  <button type="button" (click)="decrement()" [disabled]="disabled">-</button>
+
+  <span class="px-2">{{value}}</span>
+
+  <button type="button" (click)="increment()" [disabled]="disabled">+</button>
+</div>

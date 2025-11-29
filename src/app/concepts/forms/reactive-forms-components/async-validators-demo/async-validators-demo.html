@@ -1,0 +1,7 @@
+<form [formGroup]="profileForm">
+  <label class="m-2"> Name: </label>
+  <input formControlName="name" placeholder="Enter name" />
+
+  <p *ngIf="profileForm.get('name')?.pending">Checking...</p>
+  <p *ngIf="profileForm.get('name')?.errors?.['usernameTaken']" class="text-danger">Username already taken.</p>
+</form>

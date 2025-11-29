@@ -1,0 +1,15 @@
+<form #userForm='ngForm'>
+  <input class="m-3" name="name" ngModel required>
+  <div *ngIf="userForm?.controls?.['name']?.touched && userForm?.controls?.['name']?.invalid">
+    Name is required
+  </div>
+
+  <input class="m-3" name="email" ngModel email>
+  <div *ngIf="userForm?.controls?.['email']?.invalid">
+    Invalid email
+  </div>
+
+  <button class="btn btn-primary me-3" (click)="submitForm()">Submit</button>
+  <button class="btn btn-primary me-3" (click)="fillDemoData()">Autofill</button>
+  <button class="btn btn-primary" (click)="resetAll()">Reset Form</button>
+</form>

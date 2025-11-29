@@ -1,0 +1,15 @@
+<section class="p-3 border rounded">
+  <h4>Form Control - Basic</h4>
+  <label>First Name</label>
+  <input [formControl]="firstName" placeholder="Type name" />
+
+  <p>Value: {{firstName.value}}</p>
+  <p>Status: {{firstName.status}}</p>
+
+  <p *ngIf="firstName.invalid && firstName.touched" class="text-danger">
+    Name is required!
+  </p>
+
+  <button class="btn btn-primary" (click)="setToDemo()">Set demo value</button>
+  <button class="btn btn-primary ms-3" (click)="reset()">Reset</button>
+</section>

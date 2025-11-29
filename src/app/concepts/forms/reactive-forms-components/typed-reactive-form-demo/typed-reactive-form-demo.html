@@ -1,0 +1,84 @@
+<section class="p-3 border rounded">
+  <h3>Typed Reactive Form Demo</h3>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submit()">
+
+    <!-- Name -->
+    <div class="mb-2">
+      <label class="form-label">Name</label>
+      <input class="form-control" formControlName="name" />
+      <div class="text-danger" *ngIf="name.touched && name.invalid">
+        <div *ngIf="name.errors?.['required']">Name is required.</div>
+        <div *ngIf="name.errors?.['minlength']">Min 3 characters.</div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-2">
+      <label class="form-label">Email</label>
+      <input class="form-control" formControlName="email" />
+      <div class="text-danger" *ngIf="email.touched && email.invalid">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Invalid email.</div>
+      </div>
+    </div>
+
+    <!-- Age -->
+    <div class="mb-2">
+      <label class="form-label">Age</label>
+      <input type="number" class="form-control" formControlName="age" />
+    </div>
+
+    <!-- Address -->
+    <div formGroupName="address" class="mb-2">
+      <label class="form-label">Address</label>
+      <div class="d-flex gap-2">
+        <input class="form-control" formControlName="city" placeholder="City" />
+        <input
+          class="form-control"
+          formControlName="pincode"
+          placeholder="Pincode"
+        />
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="mb-2">
+      <label class="form-label">Skills</label>
+      <div formArrayName="skills">
+        <div
+          class="d-flex align-items-center mb-1"
+          *ngFor="let skillCtrl of skills.controls; let i = index"
+        >
+          <input class="form-control me-2" [formControlName]="i" />
+          <button
+            type="button"
+            class="btn btn-sm btn-danger"
+            (click)="removeSkill(i)"
+          >
+            X
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-sm btn-primary mt-1"
+        (click)="addSkill()"
+      >
+        Add Skill
+      </button>
+    </div>
+
+    <button type="button" class="btn btn-secondary me-2" (click)="loadDemoData()">
+      Load Demo Data
+    </button>
+
+    <button type="submit" class="btn btn-success">
+      Submit (check console)
+    </button>
+  </form>
+
+  <hr />
+  <h5>Form value (typed):</h5>
+  <pre>{{ profileForm.getRawValue() | json }}</pre>
+</section>

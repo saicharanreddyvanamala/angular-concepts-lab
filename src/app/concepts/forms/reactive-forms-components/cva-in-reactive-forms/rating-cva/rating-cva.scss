@@ -1,0 +1,13 @@
+.star {
+  font-size: 32px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.star.filled {
+  color: gold;
+}
+
+.star.disabled {
+  cursor: not-allowed;
+}

@@ -18,5 +18,8 @@ export const routes: Routes = [
   },
   {
     path: 'pipes', loadChildren: () => import('./concepts/pipes/pipes.module').then(m => m.PipesModule)
+  },
+  {
+    path: 'forms', loadChildren: () => import('./concepts/forms/forms.module').then(m => m.FormsModule)
   }
 ];

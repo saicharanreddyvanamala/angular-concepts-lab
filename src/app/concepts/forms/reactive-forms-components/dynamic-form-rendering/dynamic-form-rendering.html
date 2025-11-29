@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+  <div *ngFor="let field of formConfig">
+    <!--TEXT / EMAIL / NUMBER-->
+    <input
+      *ngIf="field.type !== 'select'"
+      [type]="field.type"
+      [formControlName]="field.name"
+      [placeholder]="field.label"
+      class="form-control m-1"
+    />
+
+    <!--SELECT-->
+    <select
+      *ngIf="field.type === 'select'"
+      [formControlName]="field.name"
+      class="form-control m-1">
+      <option value="">Select {{field.label}}</option>
+      <option *ngFor="let opt of field.options" [value]="opt">{{opt}}</option>
+    </select>
+
+    <p class="text-danger m-1" *ngIf="form.get(field.name)?.invalid && form.get(field.name)?.touched">
+      {{field.label}} is required
+    </p>
+  </div>
+
+  <button class="m-1 btn btn-outline-primary" (click)="submit()">Submit</button>
+</form>

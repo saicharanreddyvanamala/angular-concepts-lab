@@ -1,0 +1,26 @@
+<h2>Nested FormArray Example</h2>
+
+<form [formGroup]="form">
+  <div formArrayName="addresses">
+    <div *ngFor="let address of addresses.controls; let i = index" [formGroupName]="i" class="p-3 border my-3">
+      <h3>Address {{i + 1}}</h3>
+      <input placeholder="Street" formControlName="street"/>
+      <input placeholder="City" formControlName="city">
+
+      <h4>Phones</h4>
+      <div formArrayName="phones">
+        <div *ngFor="let phone of getPhones(i).controls; let j = index" [formGroupName]="j">
+          <input formControlName="type" placeholder="Phone Type"/>
+          <input formControlName="number" placeholder="Phone Number">
+          <button class="btn btn-outline-danger" (click)="removePhone(i,j)">Remove Phone</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-outline-primary m-1" (click)="addPhone(i)">Add Phone</button>
+      <button type="button" (click)="removeAddress(i)" class="btn btn-outline-primary m-1">Remove Address</button>
+    </div>
+  </div>
+  <button class="btn btn-outline-primary m-1" (click)="addAddress()">Add Address</button>
+</form>
+
+<pre>{{form.value | json}}</pre>

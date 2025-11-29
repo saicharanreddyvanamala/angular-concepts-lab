@@ -1,0 +1,23 @@
+<section class="p-3 border rounded">
+  <h3>FormArray - Basic Example</h3>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submit()">
+    <label class="me-3">Name:</label>
+    <input formControlName="name" />
+
+    <h4 class="m3">Hobbies:</h4>
+    <button type="button" class="btn btn-primary m-3" (click)="addHobby()">Add hobby</button> <br/>
+      <!-- Apply formArrayName wrapper -->
+    <div formArrayName="hobbies">
+      <div *ngFor="let hobby of hobbies.controls; let i =index">
+        <input class="m-3" [formControlName]="i"/>
+        <button class="btn btn-danger m-3" (click)="removeHobby(i)">X</button>
+      </div>
+    </div>
+
+
+    <button class="btn btn-primary m-3" type="submit">Submit</button>
+  </form>
+
+  <pre>{{profileForm.value | json}}</pre>
+</section>

@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <!-- Pass sub-groups to child components -->
+  <app-personal-info [group]="personalGroup" />
+
+  <app-address-info [group]="addressGroup" />
+
+  <app-skills-section [skills]="skillsGroup" />
+
+  <button class="btn btn-primary mt-3">Submit</button>
+</form>

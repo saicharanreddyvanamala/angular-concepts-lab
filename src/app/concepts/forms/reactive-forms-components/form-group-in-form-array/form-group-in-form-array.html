@@ -1,0 +1,35 @@
+<section class="p-3 border rounded">
+  <h3>Dynamic FormArray of FormGroup (working)</h3>
+
+  <!-- bind the root FormGroup -->
+  <form [formGroup]="profileForm" (ngSubmit)="submit()">
+
+    <label class="m-3">Name:</label>
+    <input formControlName="name" />
+    <div *ngIf="profileForm.invalid && profileForm.controls['name'].touched">
+      <small class="text-danger">Name is required</small>
+    </div>
+    <h4 class="m-3">Skills</h4>
+
+    <button type="button" class="btn btn-primary m-3" (click)="addSkill()">Add Skill</button>
+
+    <!-- IMPORTANT: use formArrayName on the wrapper -->
+    <div formArrayName="skills">
+      <!-- iterate over the controls and use formGroupName with index -->
+      <div
+        class="border p-3 my-3"
+        *ngFor="let _ of skills.controls; let i = index"
+        [formGroupName]="i">
+
+        <input class="m-2" formControlName="skill" placeholder="skill" />
+        <input class="m-3" formControlName="level" placeholder="level" />
+
+        <button type="button" class="btn btn-danger" (click)="removeSkill(i)">X</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
+  </form>
+
+  <pre class="mt-3">{{ profileForm.value | json }}</pre>
+</section>

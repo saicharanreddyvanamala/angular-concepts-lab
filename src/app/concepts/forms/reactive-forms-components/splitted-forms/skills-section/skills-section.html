@@ -1,0 +1,10 @@
+<div class="border p-3 mb-3">
+  <h3>Skills</h3>
+
+  <div *ngFor="let ctrl of skills.controls; let i = index">
+    <input class="form-control me-2" [formControl]="ctrl">
+    <button class="btn btn-danger btn-sm" (click)="remove(i)">X</button>
+  </div>
+
+  <button class="btn btn-primary mt-2" type="button" (click)="add()">Add Skill</button>
+</div>

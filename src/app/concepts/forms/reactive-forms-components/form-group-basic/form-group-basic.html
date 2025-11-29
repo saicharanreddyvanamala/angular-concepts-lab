@@ -1,0 +1,29 @@
+<section class="p-3 border rounded">
+  <h4>FormGroup - Basic</h4>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submit()">
+    <div class="m-3">
+      <label class="me-3">UserName: </label>
+      <input formControlName="username" placeholder="username"/> <br/>
+      <small *ngIf="usename.invalid && usename.touched">
+        <small *ngIf="usename.errors?.['required']" class="text-danger">Username Required</small>
+        <small *ngIf="usename.errors?.['minlength']">Min length 3</small>
+      </small>
+    </div>
+
+    <div class="m-3">
+      <label class="me-3">Email: </label>
+      <input formControlName="email" placeholder="email" /> <br/>
+      <small *ngIf="email.invalid && email.touched">
+        <small *ngIf="email.errors?.['required']" class="text-danger">Email Required </small>
+      </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-3">Submit</button>
+    <button type="button" class="btn btn-primary" (click)="fillDemo()">Fill Demo</button>
+  </form>
+
+  <pre>Form Value: {{profileForm.value | json}}</pre>
+  <pre>Form Status: {{profileForm.status}}</pre>
+
+</section>

@@ -1,0 +1,44 @@
+<section>
+  <h4>Basic Form Validators Demo</h4>
+
+  <form [formGroup]="profileForm" (ngSubmit)="submit()">
+
+    <label class="m-1">Name: </label>
+    <input class="m-1" formControlName="name" placeholder="Enter Name"/>
+    <div class="m-1" *ngIf="name.invalid && name.touched">
+      <small class="m-1 text-danger">Name is required</small>
+    </div>
+    <!--Custom validator-->
+    <div class="text-danger" *ngIf="name.errors?.['noSpace'] && name.touched">
+      <small class="m-1 text-danger">Spaces not allowed.</small>
+    </div>
+
+    <label>Email: </label>
+    <input class="m-1" formControlName="email" placeholder="Enter Email" />
+    <div class="m-1" *ngIf="email.errors?.['required'] && email.touched">
+      <small class="m-1 text-danger">Email is required</small>
+    </div>
+    <div class="m-1" *ngIf="email.errors?.['email'] && email.touched">
+      <small class="m-1 text-danger">Enter Valid Email</small>
+    </div>
+
+    <label class="m-1">Password</label>
+    <input formControlName="password" placeholder="Enter Password" class="m-1"/>
+    <div class="m-1" *ngIf="password.errors?.['required'] && password.touched">
+      <small class="m-1 text-danger">Password is required</small>
+    </div>
+    <div class="m-1" *ngIf="password.errors?.['minlength'] && password.touched">
+      <small class="m-1 text-danger">Password min length is 4</small>
+    </div>
+
+    <div formArrayName="skills">
+      <label *ngFor="let s of skills.controls; let i = index">
+        <input type="checkbox" [formControlName]="i" />
+        Skill {{i + 1}}
+      </label>
+      <p *ngIf="skills.touched && skills.errors?.['requiredOne']" class="text-danger">Select at least one skill.</p>
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</section>

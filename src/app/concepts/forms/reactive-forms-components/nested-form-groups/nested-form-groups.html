@@ -1,0 +1,39 @@
+<form [formGroup]="profileForm">
+  <h4>Nested Form Group Example</h4>
+
+  <div formGroupName="personal" class="m-2">
+    <label class="m-1"> FirstName: </label>
+    <input formControlName="firstName" class="m-1" placeholder="Enter FirstName" />
+    <div *ngIf="firstName.invalid && firstName.touched" class="m-2">
+      <small *ngIf="firstName.errors?.['required']" class="text-danger m-1">FirstName is required</small>
+      <small *ngIf="firstName.errors?.['minlength']" class="text-danger m-1">Min 3 chars</small>
+    </div>
+
+    <label class="m-1"> LastName: </label>
+    <input formControlName="lastName" class="m-1" placeholder="Enter LastName" />
+  </div>
+
+  <div formGroupName="address">
+    <label class="m-1"> City: </label>
+    <input formControlName="city" class="m-1" placeholder="Enter City Name"/>
+
+    <label class="m-1"> Pincode: </label>
+    <input formControlName="pincode" class="m-1" placeholder="Enter Pincode" />
+    <div *ngIf="pincode.invalid && pincode.touched">
+      <small *ngIf="pincode.errors?.['required']" class="text-danger">Pincode is requied</small>
+      <small *ngIf="pincode.errors?.['pattern']" class="text-danger">Pincode should only contain numbers</small>
+    </div>
+  </div>
+
+  <h4 class="m-1">Skills: </h4>
+  <button class="btn btn-info m-1" (click)="addSkill()">Add Skill</button>
+  <div formArrayName="skills">
+    <label *ngFor="let group of skills.controls; let i = index" [formGroupName]="i">
+      <input formControlName="skill" class="m-1" placeholder="Skill Name"/>
+      <input formControlName="exp" class="m-1" placeholder="Experience" />
+      <button class="btn btn-outline-danger m-1" (click)="removeSkill(i)">X</button>
+    </label>
+  </div>
+
+  <pre>{{ profileForm.value| json }}</pre>
+</form>
