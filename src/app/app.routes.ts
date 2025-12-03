@@ -21,5 +21,8 @@ export const routes: Routes = [
   },
   {
     path: 'forms', loadChildren: () => import('./concepts/forms/forms.module').then(m => m.FormsModule)
+  },
+  {
+    path: 'rxjs', loadChildren: () => import('./concepts/RxJS/rxjs.module').then(m => m.RxJSMOdule)
   }
 ];
