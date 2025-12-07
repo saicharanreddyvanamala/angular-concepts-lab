@@ -19,6 +19,15 @@ import { ExhaustMapBasic } from "./exhaust-map-basic/exhaust-map-basic";
 import { ForkjoinBasic } from "./forkjoin-basic/forkjoin-basic";
 import { CombinelatestBasic } from "./combinelatest-basic/combinelatest-basic";
 import { WithlatestfromBasic } from "./withlatestfrom-basic/withlatestfrom-basic";
+import { SubjectBasic } from "./subjects/subject-basic/subject-basic";
+import { BehaviorSubjectBasic } from "./subjects/behavior-subject-basic/behavior-subject-basic";
+import { ReplaySubjectBasic } from "./subjects/replay-subject-basic/replay-subject-basic";
+import { AsyncSubjectBasic } from "./subjects/async-subject-basic/async-subject-basic";
+import { ShareReplayBasic } from "./subjects/share-replay-basic/share-replay-basic";
+import { DestroyPattern } from "./subjects/destroy-pattern/destroy-pattern";
+import { StartWithBasic } from "./start-with-basic/start-with-basic";
+import { EndWithBasic } from "./end-with-basic/end-with-basic";
+import { PairwiseBasic } from "./pairwise-basic/pairwise-basic";
 
 const ROUTES: Routes = [
   {
@@ -77,6 +86,33 @@ const ROUTES: Routes = [
   },
   {
     path: 'withlatestfrom', component: WithlatestfromBasic
+  },
+  {
+    path: 'subject', component: SubjectBasic
+  },
+  {
+    path: 'behavior-subject', component: BehaviorSubjectBasic
+  },
+  {
+    path: 'replay-subject', component: ReplaySubjectBasic
+  },
+  {
+    path: 'async-subject', component: AsyncSubjectBasic
+  },
+  {
+    path: 'share-replay', component: ShareReplayBasic
+  },
+  {
+    path: 'destroy-pattern', component: DestroyPattern
+  },
+  {
+    path: 'start-with', component: StartWithBasic
+  },
+  {
+    path: 'end-with', component: EndWithBasic
+  },
+  {
+    path: 'pair-wise', component: PairwiseBasic
   }
 ]
 
