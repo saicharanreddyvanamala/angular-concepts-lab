@@ -28,6 +28,29 @@ import { DestroyPattern } from "./subjects/destroy-pattern/destroy-pattern";
 import { StartWithBasic } from "./start-with-basic/start-with-basic";
 import { EndWithBasic } from "./end-with-basic/end-with-basic";
 import { PairwiseBasic } from "./pairwise-basic/pairwise-basic";
+import { ScanBasic } from "./scan-basic/scan-basic";
+import { ReduceBasic } from "./reduce-basic/reduce-basic";
+import { TakeuntilCancelHttp } from "./takeuntil-cancel-http/takeuntil-cancel-http";
+import { TakewhileBasic } from "./takewhile-basic/takewhile-basic";
+import { BufferBasic } from "./buffer-operators/buffer-basic/buffer-basic";
+import { BuffercountBasic } from "./buffer-operators/buffercount-basic/buffercount-basic";
+import { BuffertimeBasic } from "./buffer-operators/buffertime-basic/buffertime-basic";
+import { BuffertoggleBasic } from "./buffer-operators/buffertoggle-basic/buffertoggle-basic";
+import { BufferWhenBasic } from "./buffer-operators/buffer-when-basic/buffer-when-basic";
+import { SkipBasic } from "./skip/skip-basic/skip-basic";
+import { SkipWhileBasic } from "./skip/skip-while-basic/skip-while-basic";
+import { SkipUntilBasic } from "./skip/skip-until-basic/skip-until-basic";
+import { SampleBasic } from "./sample/sample-basic/sample-basic";
+import { SampleTimeBasic } from "./sample/sample-time-basic/sample-time-basic";
+import { AuditTimeBasic } from "./sample/audit-time-basic/audit-time-basic";
+import { TimeIntervalBasic } from "./time-interval-basic/time-interval-basic";
+import { TimeStampBasic } from "./time-stamp-basic/time-stamp-basic";
+import { DelayBasic } from "./delay-basic/delay-basic";
+import { DelayWhenBasic } from "./delay-when-basic/delay-when-basic";
+import { MaterializeBasic } from "./materialize-basic/materialize-basic";
+import { DematerializeBasic } from "./dematerialize-basic/dematerialize-basic";
+import { TimeoutBasic } from "./timeout-basic/timeout-basic";
+import { CatchErrorBasic } from "./error/catch-error-basic/catch-error-basic";
 
 const ROUTES: Routes = [
   {
@@ -113,6 +136,75 @@ const ROUTES: Routes = [
   },
   {
     path: 'pair-wise', component: PairwiseBasic
+  },
+  {
+    path: 'scan',component: ScanBasic
+  },
+  {
+    path: 'reduce', component: ReduceBasic
+  },
+  {
+    path: 'takeuntil-cancel-http', component: TakeuntilCancelHttp
+  },
+  {
+    path: 'take-while', component: TakewhileBasic
+  },
+  {
+    path: 'buffer', component: BufferBasic
+  },
+  {
+    path: 'buffer-count', component: BuffercountBasic
+  },
+  {
+    path: 'buffer-time', component: BuffertimeBasic
+  },
+  {
+    path: 'buffer-toggle', component: BuffertoggleBasic
+  },
+  {
+    path: 'buffer-when', component: BufferWhenBasic
+  },
+  {
+    path: 'skip', component: SkipBasic
+  },
+  {
+    path: 'skip-while', component: SkipWhileBasic
+  },
+  {
+    path: 'skip-until', component: SkipUntilBasic
+  },
+  {
+    path: 'sample', component: SampleBasic
+  },
+  {
+    path: 'sample-time', component: SampleTimeBasic
+  },
+  {
+    path: 'audit-time', component: AuditTimeBasic
+  },
+  {
+    path: 'time-interval', component: TimeIntervalBasic
+  },
+  {
+    path: 'time-stamp', component: TimeStampBasic
+  },
+  {
+    path: 'delay', component: DelayBasic
+  },
+  {
+    path: 'delay-when', component: DelayWhenBasic
+  },
+  {
+    path: 'materialize', component: MaterializeBasic
+  },
+  {
+    path: 'dematerialize', component: DematerializeBasic
+  },
+  {
+    path: 'timeout', component: TimeoutBasic
+  },
+  {
+    path: 'catch-error', component: CatchErrorBasic
   }
 ]
 
