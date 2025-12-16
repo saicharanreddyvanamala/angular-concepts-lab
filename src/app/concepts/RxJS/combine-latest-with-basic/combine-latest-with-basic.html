@@ -1,0 +1,21 @@
+<section class="p-3 border">
+  <h3>combineLatestWith() Demo</h3>
+
+  <button class="btn btn-primary m-2" (click)="changeCategory('Books')">
+    Books
+  </button>
+  <button class="btn btn-primary m-2" (click)="changeCategory('Electronics')">
+    Electronics
+  </button>
+
+  <button class="btn btn-secondary m-2" (click)="changePrice(100)">
+    ₹100
+  </button>
+  <button class="btn btn-secondary m-2" (click)="changePrice(500)">
+    ₹500
+  </button>
+
+  <div *ngFor="let c of combined">
+    {{ c.category }} - {{ c.price }}
+  </div>
+</section>

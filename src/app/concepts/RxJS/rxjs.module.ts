@@ -51,6 +51,19 @@ import { MaterializeBasic } from "./materialize-basic/materialize-basic";
 import { DematerializeBasic } from "./dematerialize-basic/dematerialize-basic";
 import { TimeoutBasic } from "./timeout-basic/timeout-basic";
 import { CatchErrorBasic } from "./error/catch-error-basic/catch-error-basic";
+import { RetryBasic } from "./error/retry-basic/retry-basic";
+import { RetryWhenBasic } from "./error/retry-when-basic/retry-when-basic";
+import { ThrowErrorBasic } from "./error/throw-error-basic/throw-error-basic";
+import { FinalizeBasic } from "./error/finalize-basic/finalize-basic";
+import { ZipBasic } from "./zip-basic/zip-basic";
+import { RaceBasic } from "./race-basic/race-basic";
+import { MergeBasic } from "./merge-basic/merge-basic";
+import { ConcatBasic } from "./concat-basic/concat-basic";
+import { CombineLatestWithBasic } from "./combine-latest-with-basic/combine-latest-with-basic";
+import { AsyncSchedulerBasic } from "./schedulers/async-scheduler-basic/async-scheduler-basic";
+import { QueueSchedulerBasic } from "./schedulers/queue-scheduler-basic/queue-scheduler-basic";
+import { AsapSchedulerBasic } from "./schedulers/asap-scheduler-basic/asap-scheduler-basic";
+import { AnimationFrameSchedulerBasic } from "./schedulers/animation-frame-scheduler-basic/animation-frame-scheduler-basic";
 
 const ROUTES: Routes = [
   {
@@ -205,6 +218,45 @@ const ROUTES: Routes = [
   },
   {
     path: 'catch-error', component: CatchErrorBasic
+  },
+  {
+    path: 'retry', component: RetryBasic
+  },
+  {
+    path: 'retry-when', component: RetryWhenBasic
+  },
+  {
+    path: 'throw-error', component: ThrowErrorBasic
+  },
+  {
+    path: 'finalize', component: FinalizeBasic
+  },
+  {
+    path: 'zip', component: ZipBasic
+  },
+  {
+    path: 'race', component: RaceBasic
+  },
+  {
+    path: 'merge', component: MergeBasic
+  },
+  {
+    path: 'concat', component: ConcatBasic
+  },
+  {
+    path: 'combine-latest-with', component: CombineLatestWithBasic
+  },
+  {
+    path: 'async-scheduler', component: AsyncSchedulerBasic
+  },
+  {
+    path: 'queue-scheduler', component: QueueSchedulerBasic
+  },
+  {
+    path: 'asap-scheduler', component: AsapSchedulerBasic
+  },
+  {
+    path: 'animation-frame-scheduler', component: AnimationFrameSchedulerBasic
   }
 ]
 
