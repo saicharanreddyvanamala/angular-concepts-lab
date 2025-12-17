@@ -1,0 +1,13 @@
+<section class="p-3 border rounded">
+  <h3>HTTP Retry Demo</h3>
+
+  <button class="btn btn-primary mb-2" (click)="loadUsers()">
+    Load Users
+  </button>
+
+  <p class="text-danger" *ngIf="error">{{ error }}</p>
+
+  <ul *ngIf="users$ | async as users">
+    <li *ngFor="let u of users">{{ u.name }}</li>
+  </ul>
+</section>

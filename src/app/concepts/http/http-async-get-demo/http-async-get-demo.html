@@ -1,0 +1,9 @@
+<section class="p-3 border rounded">
+  <h3>HTTP GET (Async Pipe)</h3>
+
+  <ul *ngIf="users$ | async as users">
+    <li *ngFor="let user of users">
+      {{user.name}} - {{user.email}}
+    </li>
+  </ul>
+</section>

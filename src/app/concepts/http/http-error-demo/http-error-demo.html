@@ -1,0 +1,17 @@
+<section class="p-3 border rounded">
+  <h3>HTTP Error Handling Demo</h3>
+
+  <button class="btn btn-primary mb-3" (click)="loadUsers()">
+    Load Users
+  </button>
+
+  <p class="text-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </p>
+
+  <ul *ngIf="users$ | async as users">
+    <li *ngFor="let user of users">
+      {{ user.name }}
+    </li>
+  </ul>
+</section>

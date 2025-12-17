@@ -1,0 +1,9 @@
+<section class="p-3 border rounded">
+  <h3>HTTP Query Params Demo</h3>
+  <button class="btn btn-primary mb-3" (click)="loadUsers()">Load Users</button>
+  <ul *ngIf="users$ | async as users">
+    <li *ngFor="let user of users">
+      {{user.name}}
+    </li>
+  </ul>
+</section>

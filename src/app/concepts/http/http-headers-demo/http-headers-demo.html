@@ -1,0 +1,13 @@
+<section class="p-3 border rounded">
+  <h3>HTTP Headers Demo</h3>
+
+  <button class="btn btn-primary mb-3" (click)="loadUsersWithHeaders()">
+    Load Users (with Headers)
+  </button>
+
+  <ul *ngIf="users$ | async as users">
+    <li *ngFor="let user of users">
+      {{ user.name }}
+    </li>
+  </ul>
+</section>

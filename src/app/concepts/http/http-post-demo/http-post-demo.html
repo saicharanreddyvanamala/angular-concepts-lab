@@ -1,0 +1,17 @@
+<section class="p-3 border rounded">
+  <h3>HTTP POST Demo</h3>
+
+  <input
+    class="form-control mb-2"
+    placeholder="Name"
+    [(ngModel)]="name"
+  />
+
+  <input
+    class="form-control mb-2"
+    placeholder="Email"
+    [(ngModel)]="email"
+  />
+
+  <button class="btn btn-primary" (click)="createuser()">Create User</button>
+</section>

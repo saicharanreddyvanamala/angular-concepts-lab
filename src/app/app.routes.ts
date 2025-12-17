@@ -24,5 +24,8 @@ export const routes: Routes = [
   },
   {
     path: 'rxjs', loadChildren: () => import('./concepts/RxJS/rxjs.module').then(m => m.RxJSMOdule)
+  },
+  {
+    path: 'http', loadChildren: () => import('./concepts/http/http.module').then(m => m.HttpModule)
   }
 ];

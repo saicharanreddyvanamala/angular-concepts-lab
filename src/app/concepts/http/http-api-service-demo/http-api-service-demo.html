@@ -1,0 +1,57 @@
+<section class="p-3 border rounded">
+
+  <h2>User CRUD Demo</h2>
+
+  <!-- FETCH ALL USERS -->
+  <button class="btn btn-primary mb-2" (click)="loadAllUsers()">
+    Load All Users
+  </button>
+
+  <pre *ngIf="users$ | async as users">
+    {{ users | json }}
+  </pre>
+
+  <hr />
+
+  <!-- GET USER BY ID -->
+  <h4>Get User by ID</h4>
+  <input type="number" [(ngModel)]="userIdToFetch" class="m-2" />
+  <button class="btn btn-success" (click)="loadUserById()">Load User</button>
+
+  <pre *ngIf="selectedUser$ | async as user">
+    {{ user | json }}
+  </pre>
+
+  <hr />
+
+  <!-- CREATE USER -->
+  <h4>Create User</h4>
+  <input type="text" placeholder="Name" [(ngModel)]="newUser.name" class="m-2"/>
+  <input type="email" placeholder="Email" [(ngModel)]="newUser.email" class="m-2"/>
+  <button class="btn btn-primary" (click)="createUser()">Create</button>
+
+  <hr />
+
+  <!-- UPDATE USER -->
+  <h4>Update User</h4>
+  <input type="number" placeholder="User ID" [(ngModel)]="updateUserModel.id" class="m-2"/>
+  <input type="text" placeholder="Name" [(ngModel)]="updateUserModel.name" class="m-2"/>
+  <input type="email" placeholder="Email" [(ngModel)]="updateUserModel.email" class="m-2"/>
+  <button class="btn btn-warning" (click)="updateUser()">Update</button>
+
+  <hr />
+
+  <!-- DELETE USER -->
+  <h4>Delete User</h4>
+  <input type="number" [(ngModel)]="deleteUserId" class="m-2"/>
+
+
+  <!-- This is just a example to show that when we click the button the same get call is calle dbut the api will return the cached data
+   so the network call will not happen after the first time
+   <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+<hr>
+    <button class="btn btn-primary mb-2" (click)="loadAllUsers2()">
+    Load All Users2
+  </button> -->
+
+</section>

@@ -1,0 +1,34 @@
+<section class="p-3 border rounded">
+  <h3>HTTP PUT / PATCH / DELETE</h3>
+
+  <input
+    class="form-control mb-2"
+    type="number"
+    placeholder="User ID"
+    [(ngModel)]="userId"
+  />
+
+  <input
+    class="form-control mb-2"
+    placeholder="Name"
+    [(ngModel)]="name"
+  />
+
+  <input
+    class="form-control mb-2"
+    placeholder="Email"
+    [(ngModel)]="email"
+  />
+
+  <button class="btn btn-warning me-2" (click)="updateUserPut()">
+    Update (PUT)
+  </button>
+
+  <button class="btn btn-info me-2" (click)="updateUserPatch()">
+    Update (PATCH)
+  </button>
+
+  <button class="btn btn-danger" (click)="deleteUser()">
+    Delete
+  </button>
+</section>
