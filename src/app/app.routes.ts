@@ -33,5 +33,8 @@ export const routes: Routes = [
   },
   {
     path: 'lifecycle-hooks', loadChildren: () => import('./concepts/lifecycle-hooks/lifecycle-hooks.module').then(m => m.LifecycleHooksModule)
+  },
+  {
+    path: 'change-detection', loadChildren: () => import('./concepts/change-detection/change-detection.module').then(m => m.ChangeDetectionModule)
   }
 ];
