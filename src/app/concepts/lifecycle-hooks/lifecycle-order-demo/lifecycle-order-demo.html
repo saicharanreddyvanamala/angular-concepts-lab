@@ -1,0 +1,26 @@
+
+<section class="p-3 border rounded">
+  <h3>Example for the ngOnChanges()</h3>
+  <p>Value coming from parent {{value}}</p>
+  <p>Current value is {{value}}</p>
+  <p>Previous value is {{prev}}</p>
+</section>
+
+<section class="p-3 border rounded">
+  <h3>ng-content (ngAfterContentInit, ngAfterContentChecked) Example</h3>
+  <ng-content></ng-content>
+</section>
+
+<section class="p-3 border rounded">
+<h2>ViewChild (ngAfterViewInit, ngAfterViewChecked) Example</h2>
+
+<!-- This input element belongs to this component's view -->
+ <input #usernameInput type="text" placeholder="Enter your name" />
+
+ <button (click)="focusInput()">Focus Input</button>
+</section>
+
+<section class="p-3 border rounded">
+  <h3>ngOnDestroy Example</h3>
+  <button class="btn btn-primary" (click)="timerOn()">Start Timer</button>
+</section>

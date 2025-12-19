@@ -30,5 +30,8 @@ export const routes: Routes = [
   },
   {
     path: 'routing', loadChildren: () => import('./concepts/routing/routing.module').then(m => m.RoutingModule)
+  },
+  {
+    path: 'lifecycle-hooks', loadChildren: () => import('./concepts/lifecycle-hooks/lifecycle-hooks.module').then(m => m.LifecycleHooksModule)
   }
 ];

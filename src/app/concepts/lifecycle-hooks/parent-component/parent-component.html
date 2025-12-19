@@ -1,0 +1,11 @@
+<section class="p-3 border rounded">
+  <button (click)="val = val + 1" class="btn btn-primary">Change</button>
+  <app-lifecycle-order-demo [value]="val">
+    <p #projectedPara>This paragraph is projected into ChildComponent</p>
+  </app-lifecycle-order-demo>
+</section>
+
+<section>
+
+</section>
+
