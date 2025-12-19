@@ -1,0 +1,6 @@
+<nav *ngIf="breadcrumbs.length">
+      <span *ngFor="let bc of breadcrumbs; let last = last">
+        <span>{{ bc }}</span>
+        <span *ngIf="!last"> > </span>
+      </span>
+    </nav>

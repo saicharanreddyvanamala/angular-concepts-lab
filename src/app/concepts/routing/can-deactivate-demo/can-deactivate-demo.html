@@ -1,0 +1,12 @@
+<h3>
+  Edit Profile
+</h3>
+<input
+  type="text"
+  placeholder="Enter Name"
+  (input)="onChange()"
+/>
+
+<p *ngIf="isDirty" class="text-warning">
+  You have unsaved changes!
+</p>

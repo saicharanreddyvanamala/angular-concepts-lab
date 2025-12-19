@@ -27,5 +27,8 @@ export const routes: Routes = [
   },
   {
     path: 'http', loadChildren: () => import('./concepts/http/http.module').then(m => m.HttpModule)
+  },
+  {
+    path: 'routing', loadChildren: () => import('./concepts/routing/routing.module').then(m => m.RoutingModule)
   }
 ];
