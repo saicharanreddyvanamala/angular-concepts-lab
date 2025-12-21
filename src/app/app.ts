@@ -49,3 +49,25 @@ export class App {
  * Interview tip:
  * - Router events help track navigation state
  */
+
+/**
+ * PERFORMANCE OPTIMIZATION
+ * -------------------------------------------
+ * Core rule:
+ * - Reduce change detection cycles
+ *
+ * Key tools:
+ * - OnPush
+ * - async pipe
+ * - trackBy
+ * - Immutability
+ *
+ * Architecture:
+ * - Smart vs Dumb components
+ *
+ * Avoid:
+ * - Heavy template logic
+ * - Impure pipes
+ * - Unnecessary subscriptions
+ */
+

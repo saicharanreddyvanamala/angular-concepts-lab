@@ -36,5 +36,8 @@ export const routes: Routes = [
   },
   {
     path: 'change-detection', loadChildren: () => import('./concepts/change-detection/change-detection.module').then(m => m.ChangeDetectionModule)
+  },
+  {
+    path: 'dependency-injection', loadChildren: () => import('./concepts/dependency-injection/dependency-injection.module').then(m => m.DependencyInjectionModule)
   }
 ];

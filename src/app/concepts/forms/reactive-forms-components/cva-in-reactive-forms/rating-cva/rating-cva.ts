@@ -68,3 +68,47 @@ export class RatingCva implements ControlValueAccessor {
     this.onTouched();
   }
 }
+//multi: true allows Angular to support multiple value accessors without overriding the built-in ones.
+/**6️⃣ Why multi: true?
+
+This is CRITICAL.
+
+Angular Forms supports multiple value accessors.
+
+Example:
+
+default input accessor
+
+checkbox accessor
+
+radio accessor
+
+select accessor
+
+custom accessor (yours)
+
+So NG_VALUE_ACCESSOR is defined as a multi-provider.
+
+What multi: true means
+multi: true
+
+
+Means:
+
+“Add this provider to the existing list
+Do NOT override other accessors.”
+
+Internally Angular gets:
+
+NG_VALUE_ACCESSOR = [
+  DefaultInputAccessor,
+  CheckboxAccessor,
+  SelectAccessor,
+  RatingCva   // <-- yours added here
+]
+
+
+If you remove multi: true:
+
+❌ You overwrite Angular’s built-in accessors
+❌ Forms break in unexpected ways */
