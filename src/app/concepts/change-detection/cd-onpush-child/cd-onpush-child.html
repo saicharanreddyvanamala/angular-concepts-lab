@@ -1,1 +1,10 @@
 <p>Items count: {{items.length}}</p>
+<section class="p-3 border rounded">
+  <h3>HTTP GET Demo</h3>
+  <p>If we use the async pipe only CD triggers in onPush strategy. If we do manual subscribing no CD triggers and no data will be shown in the ui</p>
+  <ul>
+    <li *ngFor="let user of users$ | async">
+      {{user.name}} - {{user.email}}
+    </li>
+  </ul>
+</section>

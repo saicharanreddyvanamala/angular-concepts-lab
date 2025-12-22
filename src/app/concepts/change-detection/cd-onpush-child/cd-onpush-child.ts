@@ -1,18 +1,33 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../../http/interfaces/user.model';
 
 @Component({
   selector: 'app-cd-onpush-child',
-  imports: [],
+  imports: [CommonModule],
   changeDetection:ChangeDetectionStrategy.OnPush,
   templateUrl: './cd-onpush-child.html',
   styleUrl: './cd-onpush-child.scss',
 })
-export class CdOnpushChild implements DoCheck {
+export class CdOnpushChild implements DoCheck, OnInit {
   @Input() items!: string[];
+  users$!: Observable<User[]>;
+  // users!: User[]
 
-  constructor( private cdr: ChangeDetectorRef) {}
+
+  constructor( private cdr: ChangeDetectorRef, private http: HttpClient) {}
 
   private previousLength = 0;
+  ngOnInit(): void {
+    //  this.http.get<any[]>('https://jsonplaceholder.typicode.com/users').subscribe(response => {
+    //   this.users = response;
+    //   this.cdr.detectChanges();
+    // });
+
+    this.users$ = this.http.get<any[]>('https://jsonplaceholder.typicode.com/users')
+  }
 
   ngDoCheck(): void {
     if(this.items.length !== this.previousLength){

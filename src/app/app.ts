@@ -71,3 +71,23 @@ export class App {
  * - Unnecessary subscriptions
  */
 
+/**
+ * COMPONENT ARCHITECTURE PATTERNS
+ * -------------------------------------------
+ * Smart components:
+ * - Fetch data
+ * - Talk to services
+ *
+ * Dumb components:
+ * - Inputs + Outputs only
+ * - OnPush
+ *
+ * Rules:
+ * - Input down, event up
+ * - Route → container
+ * - Feature-based folders
+ *
+ * Avoid:
+ * - God components
+ * - Logic in templates
+ */
