@@ -1,0 +1,35 @@
+<div class="row mb-3 align-items-center">
+
+  @if (label) {
+    <label class="col-form-label" [class]="labelCol">
+      {{ label }}
+    </label>
+  }
+
+  <div [class]="controlCol" class="position-relative">
+
+    <input
+      class="form-control"
+      [id] = "id"
+      [type]="inputType"
+      [value]="value() ?? ''"
+      [placeholder]="placeholder"
+      [disabled]="disabled()"
+      [attr.minlength]="minlength"
+      [attr.maxlength]="maxlength"
+      (input)="onInput($event)"
+      (blur)="onTouched()"
+    />
+
+  @if (type === 'password') {
+    <button
+      type="button"
+      class="password-toggle"
+      (click)="togglePassword()"
+    >
+      👁
+    </button>
+  }
+
+  </div>
+</div>

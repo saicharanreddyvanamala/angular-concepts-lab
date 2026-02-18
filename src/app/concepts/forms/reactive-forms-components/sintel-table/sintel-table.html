@@ -1,0 +1,223 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                <input type="checkbox" [checked]="allSelected" [indeterminate]="partiallySelected"
+                    (change)="toggleAll($event.target.checked)" />
+            </th>
+
+            <!-- <th *ngFor="let col of columns" [appSortable]="col.sortable ? col.key : ''" (sort)="onSort($event)"> -->
+            <th *ngFor="let col of columns">
+
+                <div class="d-flex align-items-center gap-1">
+                    <span>{{ col.label }}</span>
+
+                    <button class="btn btn-sm btn-link p-0" [ngbPopover]="filterTpl" triggers="manual"
+                        autoClose="outside" container="body" #popover="ngbPopover"
+                        (click)="popover.toggle(); $event.stopPropagation()">
+                        <fa-icon [icon]="faFilter" class="text-muted" />
+                    </button>
+
+                    <ng-template #filterTpl>
+                        <div class="filter-popover" (click)="$event.stopPropagation()"
+                            (mousedown)="$event.stopPropagation()">
+
+                            <!-- SORT -->
+                            <button class="btn btn-sm btn-outline-primary w-100 mb-2"
+                                (click)="applySort(col.key, 'asc')">
+                                A-Z Ordering
+                            </button>
+
+                            <button class="btn btn-sm btn-outline-primary w-100 mb-2"
+                                (click)="applySort(col.key, 'desc')">
+                                Z-A Ordering
+                            </button>
+
+                            <hr />
+
+                            <div class="filter-list"  *ngIf="col.filterType !== 'dateRange' && col.filterType !== 'number'">
+                                <!-- SEARCH -->
+                                <input class="form-control mb-2" placeholder="Search..." [(ngModel)]="filters[col.key]" />
+
+                                <hr />
+
+                                <!-- SELECT ALL -->
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" [checked]="isAllSelected(col.key)"
+                                        (change)="toggleSelectAll(col.key, $event.target.checked)">
+                                    <label class="form-check-label fw-bold">
+                                        Select All
+                                    </label>
+                                </div>
+
+                                <!-- CHECKBOX LIST -->
+                                <div class="filter-options">
+                                    <div class="form-check" *ngFor="let option of getFilteredValues(col.key)">
+                                        <input class="form-check-input" type="checkbox"
+                                            [checked]="filterSelections[col.key]?.has(option)"
+                                            (change)="toggleOption(col.key, option, $event.target.checked)">
+                                        <label class="form-check-label">
+                                            {{ option }}
+                                        </label>
+                                    </div>
+
+                                    <div *ngIf="getFilteredValues(col.key).length === 0" class="text-muted small">
+                                        No matching values
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="filter-range" *ngIf="col.filterType === 'number'" (mouseenter)="ensureRangeFilter(col.key)">
+                                <div class="mb-3">
+                                  <label class="form-label fw-bold mt-3">Start</label>
+                                  <input type="number"
+                                         class="form-control"
+                                         [(ngModel)]="rangeFilters[col.key].start" />
+                                </div>
+
+                                <div class="mb-3">
+                                  <label class="form-label fw-bold mt-3">End</label>
+                                  <input type="number"
+                                         class="form-control"
+                                         [(ngModel)]="rangeFilters[col.key].end" />
+                                </div>
+                            </div>
+
+                            <div class="filter-date-range" *ngIf="col.filterType === 'dateRange'">
+                                <div class="mb-3">
+                                  <label class="form-label fw-bold mt-3">Start Date</label>
+                                  <input type="date" class="form-control"
+                                         [(ngModel)]="dateRangeFilters[col.key].start" />
+                                </div>
+
+                                <div class="mb-3">
+                                  <label class="form-label fw-bold mt-3">End Date</label>
+                                  <input type="date" class="form-control"
+                                         [(ngModel)]="dateRangeFilters[col.key].end" />
+                                </div>
+                              </div>
+
+                            <hr />
+
+                            <!-- ACTIONS -->
+                            <div class="d-flex justify-content-end">
+                                <button class="btn btn-sm btn-secondary me-2" (click)="onCancel(col.key, popover)">
+                                    Cancel
+                                </button>
+
+                                <button class="btn btn-sm btn-primary" (click)="onApply(col.key, popover)">
+                                    Apply
+                                </button>
+                            </div>
+
+                        </div>
+                    </ng-template>
+                </div>
+            </th>
+            <th class="text-center">
+                <button class="btn btn-sm btn-secondary me-2"><fa-icon [icon]="faEraser" /></button>
+                <button class="btn btn-sm btn-secondary"><fa-icon [icon]="faSyncAlt" /></button>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let row of displayData">
+            <td>
+                <input type="checkbox" [checked]="selectedRows.has(row)"
+                    (change)="toggleRow(row, $event.target.checked)" />
+            </td>
+
+            <td *ngFor="let col of columns">
+                {{ row[col.key] }}
+            </td>
+            <td>
+                <button
+                    *ngFor="let btn of getRowButtons(row)"
+                    class="btn-link border-0 me-1"
+                    [ngClass]="'btn-' + (btn.type || 'primary')"
+                    (click)="openActionsViewModal(row, btn)">
+                    <fa-icon [icon]="btn.icon"></fa-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+ <!-- ng-bootstrap pagination -->
+<ngb-pagination
+    [collectionSize]="totalItems"
+    [(page)]="currentPage"
+    [pageSize]="pageSize"
+    [maxSize]="5"
+    [boundaryLinks]="true"
+    (pageChange)="applyAll()">
+
+    <ng-template ngbPaginationFirst>First</ng-template>
+    <ng-template ngbPaginationLast>Last</ng-template>
+    <ng-template ngbPaginationPrevious>Prev</ng-template>
+    <ng-template ngbPaginationNext>Next</ng-template>
+    <ng-template ngbPaginationEllipsis>...</ng-template>
+
+    <ng-template ngbPaginationNumber let-page let-active="active">
+        <span [class.fw-bold]="active">{{ page }}</span>
+    </ng-template>
+
+</ngb-pagination>
+
+
+<!-- Templates -->
+<div>
+    <ng-template #viewDetailsHeader let-activeModal="activeModal">
+        <div class="d-flex justify-content-between w-100">
+            <h5>Header</h5>
+            <button class="btn-close" (click)="activeModal.close()"></button>
+        </div>
+    </ng-template>
+    <ng-template #viewDetailsContent let-row="row">
+        Body for row: {{ row?.name }}
+    </ng-template>
+    <ng-template #viewDetailsFooter let-activeModal="activeModal">
+        <button class="btn btn-secondary" (click)="activeModal.close()">
+            Close
+        </button>
+    </ng-template>
+</div>
+
+<div>
+    <ng-template #viewLogHeader let-activeModal="activeModal">
+        <div class="d-flex justify-content-between w-100">
+            <h5>Header</h5>
+            <button class="btn-close" (click)="activeModal.close()"></button>
+        </div>
+    </ng-template>
+    <ng-template #viewLogContent let-row="row">
+        Body for row: {{ row?.name }}
+    </ng-template>
+    <ng-template #viewLogFooter let-activeModal="activeModal">
+        <button class="btn btn-secondary" (click)="activeModal.close()">
+            Close
+        </button>
+    </ng-template>
+</div>
+
+<div>
+    <ng-template #viewFileHeader let-activeModal="activeModal">
+        <div class="d-flex justify-content-between w-100">
+            <h5>Header</h5>
+            <button class="btn-close" (click)="activeModal.close()"></button>
+        </div>
+    </ng-template>
+    <ng-template #viewFileContent let-row="row">
+        Body for row: {{ row?.name }}
+    </ng-template>
+    <ng-template #viewFileFooter let-activeModal="activeModal">
+        <button class="btn btn-secondary" (click)="activeModal.close()">
+            Close
+        </button>
+    </ng-template>
+</div>
+
+
+

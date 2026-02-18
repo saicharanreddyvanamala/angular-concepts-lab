@@ -1,0 +1,19 @@
+<div class="row mb-3 align-items-center">
+  @if (label) {
+    <label [class]="labelClass" [class.required-label]="required">{{ label }}</label>
+  }
+
+  <div [class]="controlClass">
+    <textarea
+      [id]="id"
+      [rows]="rows"
+      [class]="controlClass"
+      [value]="value() ?? ''"
+      [required]="required"
+      [placeholder]="placeholder"
+      [disabled]="disabled()"
+      (input)="onInput($event)"
+      (blur)="onBlur()">
+    </textarea>
+  </div>
+</div>

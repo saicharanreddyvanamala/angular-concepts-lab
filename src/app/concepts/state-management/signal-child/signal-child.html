@@ -1,0 +1,9 @@
+ <h3>Signal Child</h3>
+
+    <!-- input(): read-only -->
+    <p><b>Title from parent (input):</b> {{ title() }}</p>
+
+    <!-- model(): read + write -->
+    <p><b>Count (model):</b> {{ count() }}</p>
+
+    <button (click)="incrementInChild()">Increment in Child</button>

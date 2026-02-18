@@ -1,0 +1,18 @@
+  <h2>Signal Parent</h2>
+
+  <p><b>Parent count:</b> {{ count() }}</p>
+  <p><b>Parent title:</b> {{ title() }}</p>
+
+<button (click)="incrementInParent()">Increment in Parent</button>
+    <button (click)="changeTitleInParent()">Change Title in Parent</button>
+
+    <hr />
+
+    <!--
+      title  -> input()  (one-way)
+      count  -> model()  (two-way)
+    -->
+    <app-signal-child
+      [title]="title()"
+      [(count)]="count">
+    </app-signal-child>

@@ -1,0 +1,20 @@
+<div class="row mb-3 align-items-center">
+  @if (label) {
+    <label [class]="labelClass" [class.required-label]="required">{{ label }}</label>
+  }
+
+  <div [class]="controlClass">
+    <input
+      type="date"
+      class="form-control"
+      [value]="value() ?? ''"
+      [required]="required"
+      [placeholder]="placeholder"
+      [disabled]="disabled()"
+      [min]="min"
+      [max]="max"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
+    />
+  </div>
+</div>

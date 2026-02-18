@@ -35,3 +35,7 @@ export class DirectivesDemo {
     return item; // identity is item value
   }
 }
+// <!--container--> is Angular’s invisible hook in the DOM to insert and remove template content.
+// Structural directives manipulate DOM using comment anchors and templates.
+// <!--container--> is Angular’s invisible hook in the DOM to insert and remove template content.
+// Structural directives manipulate DOM using comment anchors and templates.

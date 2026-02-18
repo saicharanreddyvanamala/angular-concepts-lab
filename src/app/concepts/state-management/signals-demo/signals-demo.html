@@ -1,0 +1,23 @@
+<h3>Signals Demo</h3>
+<p>Count: {{count()}}</p>
+<button class="p-3 btn btn-primary m-3" (click)="inc()">+</button>
+<button (click)="setToTen()" class="p-3 btn btn-primary">Set to 10</button>
+
+<h2>Computed Demo</h2>
+
+<p>Count: {{ count() }}</p>
+<p>Double: {{ double() }}</p>
+<p>Triple: {{ triple() }}</p>
+
+<h2>Effect Demo</h2>
+<p>Count: {{ count() }} (Check console for the log that logged by effect when count(signal) changes)</p>
+
+<h2>Signal in service Demo</h2>
+<p>Count: {{ store.count() }}</p>
+<button (click)="store.increment()">+</button>
+
+<h2>Signal in service with http Demo</h2>
+<button (click)="store.loadUsers()">Load</button>
+@for (u of store.users(); track u.id) {
+  <p>{{ u.name }}</p>
+}

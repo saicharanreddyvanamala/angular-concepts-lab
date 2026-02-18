@@ -1,0 +1,129 @@
+<div class="login-page">
+  <div class="login-card">
+    <form [formGroup]="form" (ngSubmit)="login()">
+      <!-- <app-input-component
+          type="text"label="Text"
+          labelCol="col-sm-2"
+          controlCol="col-sm-10"
+          placeholder="Enter your Text..."
+          formControlName="text"
+          [maxlength] = "8"
+        />
+        <app-input-component
+          type="number"
+          placeholder="Enter your number..."
+          formControlName="number"
+          label="Number"
+          labelCol="col-sm-2"
+          controlCol="col-sm-10"
+        />
+        <app-input-component
+          type="date"
+          formControlName="date"
+          label="Date"
+          labelCol="col-sm-2"
+          controlCol="col-sm-10"
+        />
+        <app-input-component
+          type="file"
+          formControlName="file"
+          label="File"
+          labelCol="col-sm-2"
+          controlCol="col-sm-10"
+        />
+      <app-input-component
+        label="Email"
+        placeholder="Enter your Email..."
+        type="email"
+        formControlName="email"
+        labelCol="col-sm-2"
+        controlCol="col-sm-10"
+        [errorMessages]="{
+          required: 'Email required',
+          email: 'Invalid email'
+        }"
+      />
+
+    <app-input-component
+      label="Password"
+      type="password"
+      formControlName="password"
+      placeholder="Enter your Password..."
+      labelCol="col-sm-2"
+      controlCol="col-sm-10"
+      [errorMessages]="{
+        required: 'Password required',
+        minlength: 'Minimum 8 characters'
+      }"
+    /> -->
+
+      <app-input-email
+        formControlName="email"
+        label="Email"
+        [required]="true"
+        autocomplete="email"
+        labelClass="col-sm-4"
+        controlClass="col-sm-8"
+        placeholder="Enter email"
+        [errorMessages]="{
+          required: 'Email required',
+          email: 'Invalid email format'
+        }"
+      >
+      </app-input-email>
+
+      <app-input-password
+        formControlName="password"
+        label="Password"
+        [required]="true"
+        labelClass="col-sm-4"
+        controlClass="col-sm-8"
+        placeholder="Enter password"
+        [errorMessages]="{
+          required: 'Password required',
+          minlength: 'min 6 characters required'
+        }"
+      >
+      </app-input-password>
+      <app-input-number
+        label="Age"
+        [required]="true"
+        labelClass="col-sm-4"
+        controlClass="col-sm-8"
+        formControlName="number"
+      >
+      </app-input-number>
+      <app-input-date
+        label="DOB"
+        [required]="true"
+        labelClass="col-sm-4"
+        controlClass="col-sm-8"
+        formControlName="date"
+      >
+      </app-input-date>
+      <app-input-select
+        label="Role"
+        [required]="true"
+        labelClass="col-sm-4"
+        controlClass="col-sm-8"
+        [options]="roles"
+        formControlName="role"
+      >
+      </app-input-select>
+      <app-input-textarea
+        label="Description"
+        [required]="true"
+        labelClass="col-sm-4"
+        controlClass="col-sm-8"
+        [rows]="3"
+        formControlName="description"
+      >
+      </app-input-textarea>
+      <a class="mb-3 d-block">Forgot password?</a>
+
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+
+    <!-- <button (click)="disable()">Toggle Disable</button> -->
+  </div>
+</div>

@@ -16,6 +16,11 @@ import { ParentCva } from "./cva-in-reactive-forms/parent-cva/parent-cva";
 import { TypedReactiveFormDemo } from "./typed-reactive-form-demo/typed-reactive-form-demo";
 import { RfWithOnpush } from "./rf-with-onpush/rf-with-onpush";
 import { ProfileFormComponent } from "./splitted-forms/profile-form/profile-form";
+import { InputConsumerWithCva } from "./cva-in-reactive-forms/input-consumer-with-cva/input-consumer-with-cva";
+import { InputConsumerWithoutCva } from "./cva-in-reactive-forms/input-consumer-without-cva/input-consumer-without-cva";
+import { LoginComponent } from "./custom-components-using-cva/login-component/login-component";
+import { ButtonUsageDemo } from "./custom-components-using-cva/button-usage-demo/button-usage-demo";
+import { SintelTable } from "./sintel-table/sintel-table";
 
 const ROUTES = [
   {
@@ -58,6 +63,18 @@ const ROUTES = [
     path: 'cva-in-reactive-forms', component: ParentCva
   },
   {
+    path:'input-with-cva', component: InputConsumerWithCva
+  },
+  {
+    path:'input-without-cva', component: InputConsumerWithoutCva
+  },
+  {
+    path:'login-with-cva', component: LoginComponent
+  },
+  {
+    path: 'custom-button', component: ButtonUsageDemo
+  },
+  {
     path:'typed-rf-demo', component: TypedReactiveFormDemo
   },
   {
@@ -65,6 +82,9 @@ const ROUTES = [
   },
   {
     path: 'splitted-forms', component: ProfileFormComponent
+  },
+  {
+    path: 'sintel-table', component: SintelTable
   }
 ]
 

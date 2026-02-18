@@ -1,0 +1,34 @@
+<div class="row align-items-center">
+  @if (label) {
+    <label [class]="labelClass" [class.required-label]="required">{{ label }}</label>
+  }
+  <div  [class]="controlClass">
+    <input
+      type="email"
+      class="form-control"
+      [class.is-invalid]="showError"
+      [value]="value() ?? ''"
+      [autocomplete]="autocomplete"
+      [placeholder]="placeholder"
+      [required]="required"
+      [disabled]="disabled()"
+      [attr.aria-label]="ariaLabel"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
+    />
+  </div>
+
+     @if (showError) {
+      <div class="invalid-feedback d-block">
+
+        @for (key of errorKeys; track key) {
+          <div>
+            {{ errorMessages[key] || key }}
+          </div>
+        }
+
+      </div>
+    }
+
+</div>
+

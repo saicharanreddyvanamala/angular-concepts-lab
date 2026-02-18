@@ -1,0 +1,8 @@
+<h2>Pattern 1 Demo</h2>
+
+    <p>Parent state: {{ count() }}</p>
+
+    <app-signal-io-demo-child
+      [count]="count()"
+      [onChange]="handleChange"
+    />

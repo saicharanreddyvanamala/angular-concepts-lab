@@ -39,5 +39,8 @@ export const routes: Routes = [
   },
   {
     path: 'dependency-injection', loadChildren: () => import('./concepts/dependency-injection/dependency-injection.module').then(m => m.DependencyInjectionModule)
+  },
+  {
+    path: 'state-management', loadChildren: () => import('./concepts/state-management/state-management.module').then(m => m.StateManagementModule)
   }
 ];

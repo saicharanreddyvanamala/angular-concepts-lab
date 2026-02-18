@@ -1,0 +1,16 @@
+.login-page {
+  min-height: 100vh;              // full viewport height
+  display: flex;
+  align-items: center;            // vertical center
+  justify-content: center;        // horizontal center
+  background-color: #f8f9fa;      // optional light background
+}
+
+.login-card {
+  width: 100%;
+  max-width: 500px;               // typical login width
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

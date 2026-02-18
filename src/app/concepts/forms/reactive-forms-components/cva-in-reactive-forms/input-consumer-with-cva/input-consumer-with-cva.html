@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+      <app-input-with-cva
+        label="Name"
+        formControlName="name">
+      </app-input-with-cva>
+    </form>
+
+    <p>Form value: {{ form.value | json }}</p>
+
+   <p>Value: {{ form.get('name')?.value }}</p>
+    <p>Dirty: {{ form.get('name')?.dirty }}</p>
+    <p>Pristine: {{ form.get('name')?.pristine }}</p>
+    <p>Touched: {{ form.get('name')?.touched }}</p>
+    <p>Valid: {{ form.get('name')?.valid }}</p>
+    <p>Errors: {{ form.get('name')?.errors | json }}</p>
+
+    <p style="color:red" *ngIf="form.get('name')?.touched">
+      ❌ This field is required
+    </p>
+
+    <button (click)="disable()">Toggle Disable</button>

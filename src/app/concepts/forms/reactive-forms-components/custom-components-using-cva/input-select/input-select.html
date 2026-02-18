@@ -1,0 +1,23 @@
+<div class="row mb-3 align-items-center">
+  @if (label) {
+    <label [class]="labelClass" [class.required-label]="required">{{ label }}</label>
+  }
+
+  <div [class]="controlClass">
+    <select
+      [id]="id"
+      class="form-select"
+      [disabled]="disabled()"
+      [required]="required"
+      [multiple]="multiple"
+      (change)="onChangeSelect($event)"
+      (blur)="onBlur()">
+
+      @for (opt of options; track opt.value) {
+        <option [value]="opt.value">
+          {{ opt.label }}
+        </option>
+      }
+    </select>
+  </div>
+</div>
